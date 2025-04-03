@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Weatherman</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/global.css">
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+        <link rel="preload" href="assets/rainbow.png" as="image">
+        
+    </head>
+    <body id="body" class="rainbg">
+        <header>
+            <h1>Weatherman</h1>
+            <div class="buttons">
+                <button id="restart">Restart</button>
+                <button id="about">About</button>
+                <button id="settings">Settings</button>
+            </div>
+        </header>
+        <main id="main">
+            <div id="greeting">
+                <h2 id="hello">Good morning.</h2>
+                <h3 class="fill"></h3>
+            </div>
+
+            <img id="wind" alt="wind" src="assets/wind.gif">
+            <img id="wind1" alt="wind" src="assets/wind.gif">
+
+
+            <div id="player">
+                <div id="play">
+                    <img id="click-me" src="assets/play.svg" alt="pause">
+                </div>
+                <div id="visualizer">
+                    <img id="arrow" src="assets/arrow.png" alt="player arrow">
+                    <img id="temp" src="assets/audio.svg" alt="audio wave">
+                </div>
+            </div>
+
+            <div id="time">
+                <p><span id="hour">10</span>:<span id="minutes">10</span> <span id="ampm">p.m.</span></p>
+                <p><span id="counter">0</span>s</p>
+            </div>
+
+
+
+            
+            <div id="forecast">
+                
+                <h4>Forecast</h4>
+                <button id="sun"><img src="assets/sunbutton.png" alt="Sun button"></button>
+                <button id="rain"><img src="assets/rainbutton.png" alt="Rain button"></button>
+                <button id="snow"><img src="assets/snowbutton.png" alt="Snow button"></button>
+            </div>
+
+            <div id="about-div">
+                <div id="about-text">
+                    <h3>About</h3>
+                    <p>Use the cursor to draw clouds and your keyboard to create other sonic 
+                        and visual elements.</p>
+                    <p>You are encouraged to experiment, but here is an example:</p>
+                   
+                </div>
+                <div id="about-gestures">
+                    <h3 class="fill"></h3>
+                </div>
+            </div>
+
+            <div id="settings-div">
+                <h3>Settings</h3>
+                <div id="sliders">
+                    <h6>Master vol.</h6>
+                    <h6>Rain vol.</h6>
+                    There will be sliders here.
+                </div>
+
+                <div class="buttons">
+                    <button>Display time</button>
+                    <button>Cursor tracee</button>
+                    <button>Hide UI</button>
+                </div>
+            </div>
+
+            <div id="audios">
+                <audio id="rainsound"><source src="assets/sounds/rain.mp3"></audio>
+                <script>
+                    document.getElementById('rainsound').play();
+                </script>
+                <audio id="thundersound"><source src="assets/sounds/thunder.mp3"></audio>
+                <audio id="birdsound"><source src="assets/sounds/bird.mp3"></audio>
+            </div>
+        </main>
+        
+        <script src="scripts/script.js" async defer></script>
+       
+    </body>
+</html>

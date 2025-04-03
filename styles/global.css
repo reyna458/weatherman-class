@@ -1,0 +1,396 @@
+body, html {
+    height: 100vh;
+    /* width: ; */
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    /* background-color: #453B7A; */
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.421);
+    
+}
+
+#defaultCanvas0 {
+    position: fixed;
+    animation: backgroundScroll;
+}
+
+.rainbg {
+   background-color: #00d0ff00;
+    background-image: url(../assets/raineffect.gif), url(../assets/rainbg.jpg);
+    /* background-image: url(../assets/raineffect.gif); */
+    height: 100%;
+    animation: backgroundScroll 30s infinite;
+    background-size: 20%, 200%;
+  /* Center and scale the image nicely */
+  background-position: bottom;
+  background-repeat: repeat, no-repeat;
+  /* background-size: 200%; */
+    /* backdrop-filter: blur(1px); */
+    transition: background-image .5s;
+}
+
+
+
+main div {
+    z-index: 2;
+}
+
+@keyframes backgroundScroll {
+    0%   {background-position: 0 -150vh;}
+    25%  {background-position: -200px -150vh;}
+    25%  {background-position: -200px -150vh;}
+    100% {background-position: 0 -150vh;}
+    
+}
+
+h4 {
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: .5em;
+}
+
+.snowbg {
+    background-color: #00d0ff00;
+    background-image: url(../assets/snoweffect.gif), url(../assets/snow.png);
+    /* background-image: url(../assets/raineffect.gif); */
+    height: 100%;
+    animation: backgroundScroll 30s infinite;
+    background-size: 20%, 200%;
+  /* Center and scale the image nicely */
+  background-position: bottom;
+  background-repeat: repeat, no-repeat;
+  transition: background-image .5s;
+  /* background-size: 200%; */
+    /* backdrop-filter: blur(1px); */
+}
+
+.sunbg {
+    background-image: url(../assets/sun.png);
+    height: 100%;
+    animation: backgroundScroll 30s infinite;
+    background-size: 200%;
+    transition: background-image .5s;
+  /* Center and scale the image nicely */
+  background-position: bottom;
+  background-repeat: no-repeat;
+  /* background-size: 200%; */
+}
+
+main {
+    height: 70%;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: 25% 50% 25%;
+    -moz-user-select: none;
+-webkit-user-select: none;
+user-select: none;
+    border-top: #ffffff solid 10px;
+    width: 100%;
+}
+
+#about-div {
+    display: none;
+}
+
+
+
+#settings-div {
+    display: none;
+}
+
+#about-div.show {
+    background-color: #5b046099;
+   border: white solid 10px;
+  z-index: 999;
+  align-self: center;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 2fr 1fr;
+  height: 100%;
+  max-height: 500px;
+  margin-bottom: 0;
+  margin-left: 15%;
+  margin-right: 15%;
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
+}
+
+#settings-div.show {
+    background-color: #5b046099;
+   border: white solid 10px;
+  z-index: 999;
+  align-self: center;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 2fr 1fr;
+  height: 100%;
+  max-height: 500px;
+  margin-bottom: 0;
+  margin-left: 15%;
+  margin-right: 15%;
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
+}
+
+#about-text {
+    grid-row: 1 / span 2;
+    grid-column: 1 / span 3;
+    margin: 2em;
+    margin-top: .5em;
+}
+
+#about-text h3 {
+    font-weight: bold;
+    font-size: 48px;
+}
+
+#about-text p {
+    font-size: 24px;
+}
+
+#about-gestures {
+    grid-row: 3;
+    grid-column: 1 / span 3;
+    align-self: center;
+    margin-left: 2em;
+    margin-top: 1em;
+}
+
+#more {
+    grid-row: 4;
+    grid-column: 1 / span 2;
+    color: white;
+    margin: 2em;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#forecast {
+    justify-self: right;
+    grid-row: 3;
+    grid-column: 2 / span 2;
+}
+
+#time {
+    grid-row: 3;
+    grid-column: 1;
+    align-items: baseline;
+    justify-self: left;
+}
+
+#time p {
+    position: relative;
+    top: 100%;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#player {
+    grid-row: 2;
+    grid-column: 1 / span 3;
+}
+
+#greeting {
+    justify-self: center;
+    text-align: center;
+    grid-row: 1;
+    grid-column: 1 / span 3;
+    filter: drop-shadow(-2px 2px 2px black);
+}
+
+#hello {
+    font-size: 48px;
+}
+
+header {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+h1 {
+    font-size: 48px;
+    grid-column: 1;
+    filter: drop-shadow(-2px 2px 2px black);
+}
+
+#player {
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+}
+
+#play {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: right;
+}
+
+#visualizer {
+    grid-column: 2;
+    grid-row: 1;
+    background-color: #5b04604c;
+    border: white solid 10px;
+    width: 80%; /* Adjust width to your preference */
+    height: 50%; /* Adjust height to your preference */
+    position: relative; /* Makes the div the reference point for positioning */
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+}
+
+canvas {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block; /* Removes any extra space below the canvas */
+}
+
+#temp {
+    align-self: start;
+    visibility: hidden;
+}
+
+#audios {
+    display: none;
+}
+
+#arrow {
+    max-width: 15px;
+    max-height: 15px;
+    display: flex;
+    margin-left: 5%;
+    margin-top: 2.5%;
+    align-self: start;
+}
+
+#arrow.going {
+    animation: playerScroll 60s infinite;
+}
+
+@keyframes playerScroll {
+    0% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(250px);
+    }
+}
+
+.buttons {
+    left: 50%;  
+    display: inline-block;
+    grid-column: 2;
+    justify-self: right;
+    align-self: center;
+}
+
+header button {
+    border: white 5px solid;
+    background-color: rgba(255, 228, 196, 0);
+    color: white;
+    max-height: 50px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: bold;
+    margin: .5em;
+    filter: drop-shadow(-4px 4px 4px black);
+}
+
+header button:hover {
+    border-color: #00D0FF;
+    text-decoration: underline #00D0FF;
+    color: #00D0FF;
+    filter: drop-shadow(-2px 2px 2px black);
+}
+
+main button {
+    background-color: rgba(255, 228, 196, 0);
+    border: none;
+    filter: drop-shadow(-4px 4px 4px black);
+}
+
+#main.rainbow {
+    background-image: url(../assets/rainbow.png);
+    background-size: 100%;
+    transition: background-image .5s;
+    opacity: .5;
+}
+
+#main.wind {
+    background-image: url(../assets/wind.gif);
+    background-size: 100%;
+    transition: background-image .5 s;
+}
+
+main button:hover {
+    filter: brightness(0) saturate(100%) invert(70%) sepia(76%) saturate(2939%) hue-rotate(148deg) brightness(98%) contrast(108%) drop-shadow(-2px 2px 2px black);;
+}
+
+#play img {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7484%) hue-rotate(76deg) brightness(99%) contrast(99%);
+    max-width: 150px;
+}
+
+#visualizer img {
+    height: 100%;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7484%) hue-rotate(76deg) brightness(99%) contrast(99%);
+}
+
+.selected {
+    filter: brightness(0) saturate(100%) invert(70%) sepia(76%) saturate(2939%) hue-rotate(148deg) brightness(98%) contrast(108%) drop-shadow(4px 4px 4px black);;
+}
+
+
+#wind {
+    display: none;
+}
+
+#wind1 {
+    display: none;
+}
+
+#wind.active {
+    display: flex;
+    max-width: 150px;
+    max-height: 150px;
+    position: flex;
+    animation: wind 3s ease-out;
+    grid-row: 2;
+    grid-column: 1;
+}
+
+#wind.active {
+    display: flex;
+    max-width: 150px;
+    max-height: 150px;
+    position: flex;
+    animation: wind 3s ease-out;
+    grid-row: 2;
+    grid-column: 3;
+}
+
+@keyframes wind {
+    10% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(100px);
+    }
+}
