@@ -94,6 +94,9 @@ user-select: none;
     display: none;
 }
 
+h3:hover {
+    animation: colors 2s infinite;
+}
 
 
 #settings-div {
@@ -392,5 +395,47 @@ main button:hover {
 
     100% {
         transform: translateX(100px);
+    }
+}
+
+@keyframes colors {
+    10% {
+        color: red;
+    }
+
+    20% {
+        color: orange;
+    }
+
+    30% {
+        color: yellow;
+    }
+
+    40% {
+        color: green;
+    }
+
+    50% {
+        color: blue;
+    }
+
+    60% {
+        color: purple;
+    }
+
+    70% {
+        color: white;
+    }
+
+    80% {
+        color: aqua;
+    }
+
+    90% {
+        color: chartreuse;
+    }
+
+    100% {
+        color: chocolate;
     }
 }

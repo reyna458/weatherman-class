@@ -45,23 +45,6 @@ updateText();
 setInterval(updateText, 10000); // Change every 10 seconds
 
 
-// PLAY AND PAUSE
-
-$(document).on('click', '#click-me', function() {
-    $('#play').html(`<img id="test" src="assets/pause.svg" alt="pause">`);
-    console.log('meowma');
-    rain.volume = 0.6
-    rain.play();
-    $('#arrow').toggleClass('going')
-    startTimer();
-});
-
-$(document).on('click', '#test', function() {
-    $('#play').html(`<img id="click-me" src="assets/play.svg" alt="play">`);
-    console.log('meowma');      
-        rain.pause();
-        $('#arrow').toggleClass('going')
-});
 
 
 // buttons
@@ -311,22 +294,51 @@ function sketch2(p) {
         }, () => {
             console.log("Error loading audio!");
         });
+
+        // PLAY AND PAUSE
+
+$(document).on('click', '#click-me', function() {
+    $('#play').html(`<img id="test" src="assets/pause.svg" alt="pause">`);
+    console.log('meowma');
+    rain.volume = 0.6
+    rain.play()
+    $('#arrow').toggleClass('going')
+    startTimer();
+});
+
+if ($('.sun').length) {
+    rain.pause()
+    // this should make the rain silent but it doesn't
+    rain.volume = 0
+}
+
+
+
+
+$(document).on('click', '#test', function() {
+    $('#play').html(`<img id="click-me" src="assets/play.svg" alt="play">`);
+    console.log('meowma');      
+        rain.pause();
+        $('#arrow').toggleClass('going')
+});
+
     };
 
     p.setup = function () {
         fft = new p5.FFT();
-        let cnv = p.createCanvas(400, 200);
-        cnv.parent('visualizer');
+        // this isolates waveforms or something somehow
+        let newCanvas2 = p.createCanvas(400, 200);
+        newCanvas2.parent('visualizer');
         p.clear();
         p.noFill();
 
-        cnv.style('display', 'block');
-        cnv.style('margin', '0 auto');
+        newCanvas2.style('display', 'block');
+        newCanvas2.style('margin', '0 auto');
 
         // Make sure the visualizer starts playing when the user interacts
         function startAudio() {
             if (!audioStarted) {
-                rain.play();
+                // rain.play();
                 audioStarted = true;
                 console.log("Audio started!");
             }
