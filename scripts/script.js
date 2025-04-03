@@ -178,7 +178,7 @@ function setup() {
     let newCanvas = createCanvas(windowWidth, windowHeight);
     newCanvas.position(0, 0);
     newCanvas.style('z-index', '-1'); 
-    clear(); // Make it transparent
+    clear();
 }
 
 // resize protection
@@ -186,6 +186,7 @@ function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 }
 
+// Cloud drawing
 function draw() {
     clear();
 
@@ -203,6 +204,8 @@ function draw() {
         let fadeFactor = 1 - (elapsedTime / fadeDuration);
         fadeFactor = constrain(fadeFactor, 0, 1);
 
+
+        // remove once fully faded
         if (fadeFactor <= 0) {
             groups.splice(i, 1);
             continue;
@@ -217,51 +220,13 @@ function draw() {
     }
 }
 
-
-// 
-let windSide;
-    
-$(document).keydown(function(event) {
-    console.log("Key pressed:", event.key); // Log every key press
-
-    if (event.key === 'r' || event.key === 'R') {
-        rainbowStartTime = millis(); 
-        $('#main').addClass('rainbow'); 
-    
-        setTimeout(() => {
-            $('#main').removeClass('rainbow'); 
-            console.log("Rainbow removed");
-        }, 5000);
-    } else if (event.key === 'w' || event.key === 'W') {
-        windStartTime = millis(); 
-        console.log("must've been the wind");
-
-// check for wind and add class
-        if ($('#wind').length) { 
-            $('#wind').addClass('active');
-            console.log("Woooooo that was wind");
-
-            setTimeout(() => {
-                $('#wind').removeClass('active'); 
-                console.log("wind gone");
-            }, 3000);
-        } else {
-            console.log("this should never happen");
-        }
-    }
-});
-
-
-
     //  Cloud storage and movement code ☁️☁️☁️☁️
-     for (let e of tempEllipses) {
-         fill(217, 217, 217, 255); // Fully visible while drawing
+for (let e of tempEllipses) {
+         fill(217, 217, 217, 255); 
          noStroke();
          ellipse(e.x, e.y, e.size);
      }
  
- 
- // C
  function mouseDragged() {
      tempEllipses.push({
          x: mouseX,
@@ -306,6 +271,47 @@ $(document).on('click', '#click-me', function() {
     startTimer();
 });
 
+$(document).on('click', '#test', function() {
+    $('#play').html(`<img id="click-me" src="assets/play.svg" alt="play">`);
+    console.log('meowma');      
+        rain.pause();
+        $('#arrow').toggleClass('going')
+});
+
+
+
+// WIND AND RAINBOWS
+
+$(document).keydown(function(event) {
+    console.log("Key pressed:", event.key); // Log every key press
+
+    if (event.key === 'r' || event.key === 'R') {
+        rainbowStartTime = millis(); 
+        $('#main').addClass('rainbow'); 
+    
+        setTimeout(() => {
+            $('#main').removeClass('rainbow'); 
+            console.log("Rainbow removed");
+        }, 5000);
+    } else if (event.key === 'w' || event.key === 'W') {
+        windStartTime = millis(); 
+        console.log("must've been the wind");
+
+// check for wind and add class
+        if ($('#wind').length) { 
+            $('#wind').addClass('active');
+            console.log("Woooooo that was wind");
+
+            setTimeout(() => {
+                $('#wind').removeClass('active'); 
+                console.log("wind gone");
+            }, 3000);
+        } else {
+            console.log("this should never happen");
+        }
+    }
+});
+
 if ($('.sun').length) {
     rain.pause()
     // this should make the rain silent but it doesn't
@@ -314,13 +320,6 @@ if ($('.sun').length) {
 
 
 
-
-$(document).on('click', '#test', function() {
-    $('#play').html(`<img id="click-me" src="assets/play.svg" alt="play">`);
-    console.log('meowma');      
-        rain.pause();
-        $('#arrow').toggleClass('going')
-});
 
     };
 
